@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>🧾 Medical Records</h2>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Patient</th>
+<th>Record Details</th>
+</tr>
+
+{% for rec in records %}
+<tr>
+<td>{{ rec[0] }}</td>
+<td>{{ rec[1] }}</td>
+<td>{{ rec[2] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<a href="/doctor_dashboard">⬅ Back</a>
+
+{% endblock %}

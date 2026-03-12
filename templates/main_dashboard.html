@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+.container{
+    text-align:center;
+    margin-top:40px;
+}
+.card{
+    display:inline-block;
+    padding:30px;
+    margin:15px;
+    background:#f5f5f5;
+    border-radius:10px;
+    width:200px;
+    box-shadow:0px 2px 6px rgba(0,0,0,0.2);
+}
+.card:hover{
+    transform:scale(1.05);
+}
+</style>
+
+<div class="container">
+
+<h2>🏥 HMS 2026 Dashboard</h2>
+
+<h3>Welcome {{ user }}</h3>
+
+<div class="card">
+<a href="/doctor_dashboard">👨‍⚕️ Doctor Panel</a>
+</div>
+
+<div class="card">
+<a href="/nurse_dashboard">👩‍⚕️ Nurse Panel</a>
+</div>
+
+<div class="card">
+<a href="/user_dashboard">👤 Patient Panel</a>
+</div>
+
+</div>
+
+{% endblock %}

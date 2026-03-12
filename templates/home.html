@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>HMS 2026 - Hospital Management System</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:linear-gradient(135deg,#1e88e5,#42a5f5);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Main Card */
+
+.container{
+    background:white;
+    padding:50px;
+    border-radius:15px;
+    width:420px;
+    text-align:center;
+    box-shadow:0px 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Logo Circle */
+
+.logo{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#1e88e5;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* Title */
+
+h1{
+    margin-top:20px;
+    color:#1e88e5;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:30px;
+}
+
+/* Buttons */
+
+.btn{
+    display:block;
+    text-decoration:none;
+    background:#1e88e5;
+    color:white;
+    padding:14px;
+    margin-top:15px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1565c0;
+    transform:scale(1.03);
+}
+
+.create{
+    background:#43a047;
+}
+
+.create:hover{
+    background:#2e7d32;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">HMS</div>
+
+<h1>HMS 2026</h1>
+
+<p class="subtitle">Hospital Management System</p>
+
+<a href="/login" class="btn">Login</a>
+
+<a href="/register" class="btn create">Create Account</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.page-container{
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.title{
+    color:#1e88e5;
+    font-size:26px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+th{
+    background:#f4f6f9;
+}
+
+</style>
+
+<div class="page-container">
+
+<div class="card">
+
+<h2 class="title">📋 View Prescriptions</h2>
+
+{% if prescriptions %}
+
+<table>
+
+<tr>
+<th>Patient</th>
+<th>Medicine</th>
+<th>Notes</th>
+</tr>
+
+{% for p in prescriptions %}
+
+<tr>
+<td>{{ p[0] }}</td>
+<td>{{ p[1] }}</td>
+<td>{{ p[2] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<p>No prescriptions available.</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card">
+
+<h2>🩺 Update Patient Vitals</h2>
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>Patient Name:</label>
+<input type="text" name="patient" placeholder="Enter patient username" required><br><br>
+
+<label>Temperature:</label>
+<input type="text" name="temperature" placeholder="Example: 98.6°F" required><br><br>
+
+<label>Blood Pressure:</label>
+<input type="text" name="bp" placeholder="Example: 120/80" required><br><br>
+
+<label>Pulse:</label>
+<input type="text" name="pulse" placeholder="Example: 72 bpm" required><br><br>
+
+<button type="submit">Update</button>
+
+</form>
+
+</div>
+
+{% endblock %}

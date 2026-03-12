@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OTP Verification</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:380px;
+    text-align:center;
+    box-shadow:0px 10px 25px rgba(0,0,0,0.25);
+}
+
+h2{
+    margin-bottom:10px;
+    color:#333;
+}
+
+p{
+    color:#666;
+    font-size:14px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:20px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+input:focus{
+    border-color:#2c5364;
+    box-shadow:0 0 5px rgba(44,83,100,0.5);
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#2c5364;
+    color:white;
+    border:none;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e3c4a;
+}
+
+.flash{
+    color:red;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🔐 OTP Verification</h2>
+
+<p>Enter the OTP sent to your email<br>(Valid for 60 seconds)</p>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="flash">{{ message }}</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<input 
+type="number"
+name="otp"
+placeholder="Enter OTP"
+maxlength="6"
+required
+autocomplete="off">
+
+<button type="submit">Verify OTP</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

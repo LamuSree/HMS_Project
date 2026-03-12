@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>HMS 2026 - Add Patient</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1e88e5,#42a5f5);
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+label{
+    font-weight:bold;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin:8px 0 15px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#006400;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🏥 HMS 2026 - Add New Patient</h2>
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>ID Type</label>
+<select name="id_type">
+    <option>Aadhar Card</option>
+    <option>Passport</option>
+    <option>Driving License</option>
+</select>
+
+<label>ID Number</label>
+<input type="text" name="id_number" required>
+
+<label>Patient Name</label>
+<input type="text" name="name" required>
+
+<label>Gender</label>
+<select name="gender">
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+</select>
+
+<label>Disease / Symptoms</label>
+<input type="text" name="disease" required>
+
+<label>Room Type</label>
+<select name="room_type">
+    <option>General Ward</option>
+    <option>Private Room</option>
+    <option>ICU</option>
+</select>
+
+<label>Room Number</label>
+<input type="number" name="room_number" required>
+
+<label>Consulting Fee / Deposit</label>
+<input type="number" name="consulting_fee" required>
+
+<button type="submit">➕ Add Patient</button>
+
+</form>
+
+<a class="back" href="/admin_dashboard">⬅ Back to Admin Dashboard</a>
+
+</div>
+
+</body>
+
+</html>

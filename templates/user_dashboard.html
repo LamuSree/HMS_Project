@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.dashboard-container{
+    max-width:900px;
+    margin:40px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.title{
+    font-size:28px;
+    color:#1e88e5;
+    margin-bottom:20px;
+}
+
+.menu a{
+    display:block;
+    font-size:18px;
+    margin:15px 0;
+    text-decoration:none;
+    color:#1e88e5;
+    font-weight:600;
+}
+
+.menu a:hover{
+    color:#1565c0;
+}
+
+.map-box{
+    margin-top:30px;
+}
+
+</style>
+
+<div class="dashboard-container">
+
+<div class="card">
+
+<h2 class="title">👤 Patient Dashboard - HMS 2026</h2>
+
+<p>Welcome {{ session["user"] }}</p>
+
+<hr>
+
+<div class="menu">
+
+<a href="{{ url_for('patient_book_appointment') }}">
+📅 Book Appointment
+</a>
+
+<a href="{{ url_for('patient_doctors') }}">
+👨‍⚕️ View Doctors Profiles
+</a>
+
+<a href="{{ url_for('patient_prescriptions') }}">
+💊 View Prescriptions
+</a>
+
+<a href="{{ url_for('patient_reports') }}">
+📋 Medical Reports
+</a>
+
+</div>
+
+<hr>
+
+<h3>📍 Hospital Location</h3>
+
+<div class="map-box">
+<div id="map" style="width:100%; height:400px;"></div>
+</div>
+
+<a href="{{ url_for('home') }}">⬅ Back</a>
+
+</div>
+
+</div>
+
+<!-- TomTom Map API -->
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
+
+<script>
+
+var map = tt.map({
+    key: "VP3wZDKF4knI26YaRvfKMLlaD5QB7RfV",
+    container: "map",
+    center: [77.70853588784597, 12.730709771382946],
+    zoom: 15
+});
+
+new tt.Marker()
+.setLngLat([77.70853588784597, 12.730709771382946])
+.addTo(map);
+
+</script>
+
+{% endblock %}

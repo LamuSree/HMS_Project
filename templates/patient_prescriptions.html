@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style>
+
+.container{
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.title{
+    font-size:26px;
+    color:#1e88e5;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+/* Table styling */
+
+.table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.table th{
+    background:#1e88e5;
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+.table td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+.table tr:hover{
+    background:#f8fbff;
+}
+
+/* Badge */
+
+.badge{
+    background:#e3f2fd;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+    color:#1565c0;
+}
+
+/* Empty message */
+
+.empty{
+    text-align:center;
+    color:#999;
+    padding:30px;
+}
+
+</style>
+
+<div class="container">
+
+<div class="card">
+
+<h2 class="title">💊 My Prescriptions</h2>
+
+{% if prescriptions %}
+
+<table class="table">
+
+<tr>
+<th>👨‍⚕️ Doctor</th>
+<th>💊 Medicine</th>
+<th>📝 Notes</th>
+</tr>
+
+{% for p in prescriptions %}
+
+<tr>
+<td><span class="badge">{{ p[1] }}</span></td>
+<td>{{ p[2] }}</td>
+<td>{{ p[3] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<div class="empty">
+No prescriptions available yet.
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

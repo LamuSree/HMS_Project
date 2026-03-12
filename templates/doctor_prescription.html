@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="title">💊 Write Prescription</h2>
+
+<div class="card">
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>Patient ID</label>
+<input type="text" name="patient_id" placeholder="Enter Patient ID" required>
+
+<label>Medicine</label>
+<input type="text" name="medicine" placeholder="Enter medicine name" required>
+
+<label>Notes</label>
+<textarea name="notes" placeholder="Additional notes (optional)"></textarea>
+
+<br><br>
+
+<button type="submit" class="btn">Save Prescription</button>
+
+</form>
+
+</div>
+
+{% endblock %}

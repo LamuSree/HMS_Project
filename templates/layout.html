@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Hospital Management System</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+/* ===== GLOBAL ===== */
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f9;
+}
+
+/* ===== HEADER ===== */
+
+.header{
+    background:#1e88e5;
+    color:white;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header h2{
+    margin:0;
+}
+
+/* NAVIGATION */
+
+.nav a{
+    color:white;
+    margin-left:15px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:85%;
+    margin:auto;
+    padding:30px 0;
+}
+
+/* ===== CARD UI ===== */
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0px 4px 12px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
+
+/* ===== TITLES ===== */
+
+.title{
+    color:#1e88e5;
+}
+
+/* ===== BUTTON ===== */
+
+.btn{
+    background:#1e88e5;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#1565c0;
+}
+
+/* ===== INPUTS ===== */
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* ===== LINKS ===== */
+
+a{
+    text-decoration:none;
+    color:#1e88e5;
+}
+
+/* ===== FLASH MESSAGES ===== */
+
+.flash{
+    background:#e3f2fd;
+    padding:12px;
+    border-left:5px solid #1e88e5;
+    margin-bottom:15px;
+    border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h2>🏥 Hospital Management System</h2>
+
+<div class="nav">
+
+<a href="/">Home</a>
+
+{% if session.get("user") %}
+<a href="/logout">Logout</a>
+{% endif %}
+
+</div>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+<!-- FLASH MESSAGES -->
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+</body>
+</html>

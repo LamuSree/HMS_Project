@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="title">🏥 Admit / Discharge Patient</h2>
+
+<div class="card">
+
+<form method="POST">
+
+<div>
+
+<label><strong>Patient ID</strong></label>
+<input type="text" name="patient_id" placeholder="Enter Patient ID" required>
+
+</div>
+
+<div>
+
+<label><strong>Action</strong></label>
+<select name="action" required>
+    <option value="">-- Select Action --</option>
+    <option value="admit">Admit Patient</option>
+    <option value="discharge">Discharge Patient</option>
+</select>
+
+</div>
+
+<div>
+
+<label><strong>Notes</strong></label>
+<textarea name="notes" placeholder="Doctor notes (optional)..."></textarea>
+
+</div>
+
+<br>
+
+<button type="submit" class="btn">🏥 Submit</button>
+
+</form>
+
+</div>
+
+{% endblock %}

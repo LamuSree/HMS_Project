@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>👨‍⚕️ Doctors List - HMS 2026</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+<th>Doctor Name</th>
+<th>Specialization</th>
+</tr>
+
+{% for doctor in doctors %}
+
+<tr>
+<td>{{ doctor[0] }}</td>
+<td>{{ doctor[1] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/user_dashboard">⬅ Back</a>
+
+{% endblock %}

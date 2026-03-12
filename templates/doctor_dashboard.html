@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.dashboard-container{
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.title{
+    color:#1e88e5;
+    font-size:28px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.menu a{
+    display:block;
+    background:#f4f6f9;
+    padding:20px;
+    border-radius:10px;
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:#1e88e5;
+    color:white;
+}
+
+</style>
+
+<div class="dashboard-container">
+
+<div class="card">
+
+<h2 class="title">👨‍⚕️ Doctor Dashboard - HMS 2026</h2>
+
+<p>Welcome Dr. {{ user }} ({{ specialization }})</p>
+
+<hr>
+
+<div class="menu">
+
+<a href="{{ url_for('doctor_patients') }}">
+👥 View Patients
+</a>
+
+<a href="{{ url_for('doctor_appointments') }}">
+📅 Appointments
+</a>
+
+<a href="{{ url_for('doctor_prescription') }}">
+💊 Write Prescription
+</a>
+
+
+
+<a href="{{ url_for('doctor_update_patient') }}">
+✏️ Update Patient
+</a>
+
+<a href="{{ url_for('doctor_reports') }}">
+📑 Reports
+</a>
+
+<a href="{{ url_for('doctor_lab_results') }}">
+🧪 Lab Results
+</a>
+
+<a href="{{ url_for('doctor_order_tests') }}">
+🧬 Order Tests
+</a>
+
+<a href="{{ url_for('doctor_admit_discharge') }}">
+🏥 Admit / Discharge
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

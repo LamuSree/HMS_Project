@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.1);
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    background:#1e88e5;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1565c0;
+}
+
+</style>
+
+<div class="container">
+
+<h2>💊 Give Medications & Injections</h2>
+
+<div class="card">
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>Patient Name:</label>
+<input type="text" name="patient" placeholder="Enter patient username" required>
+
+<label>Medicine Name:</label>
+<input type="text" name="medicine" placeholder="Enter medicine name" required>
+
+<label>Dosage / Injection Details:</label>
+<input type="text" name="dosage" placeholder="Example: 500mg / Injection IM" required>
+
+<button type="submit">Administer Medication</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

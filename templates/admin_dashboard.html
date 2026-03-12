@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Admin Dashboard - HMS</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1e88e5,#42a5f5);
+    height:100vh;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:420px;
+    text-align:center;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+a{
+    display:block;
+    background:green;
+    color:white;
+    padding:14px;
+    margin:12px 0;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+a:hover{
+    background:#006400;
+    transform:scale(1.03);
+}
+
+.logout{
+    background:red;
+}
+
+.logout:hover{
+    background:darkred;
+}
+
+.section-title{
+    margin-top:25px;
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>👑 Admin Dashboard - HMS 2026</h2>
+
+<!-- ===== ADMIN CONTROL PANEL ===== -->
+
+<div class="section-title">ADMIN CONTROL PANEL</div>
+
+<a href="{{ url_for('admin_doctors') }}">👨‍⚕️ Manage Doctors</a>
+
+<a href="{{ url_for('admin_nurses') }}">👩‍⚕️ Manage Nurses</a>
+
+<a href="{{ url_for('admin_patients') }}">🧑 Manage Patients</a>
+
+<a href="{{ url_for('admin_add_patient') }}">➕ Add New Patient</a>
+
+<!-- ===== PERSONAL PANELS ===== -->
+
+<div class="section-title">Quick Access Panels</div>
+
+<a href="{{ url_for('doctor_dashboard') }}">👨‍⚕️ Doctor Panel</a>
+
+<a href="{{ url_for('user_dashboard') }}">🧑‍🤝‍🧑 Patient Panel</a>
+
+<a href="{{ url_for('nurse_dashboard') }}">👩‍⚕️ Nurse Panel</a>
+
+<a class="logout" href="{{ url_for('logout') }}">🚪 Logout</a>
+
+</div>
+
+</body>
+
+</html>

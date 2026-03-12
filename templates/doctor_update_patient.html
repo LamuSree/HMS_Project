@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+
+<h2 class="title">✏️ Update Patient Information</h2>
+
+<div class="card">
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>Patient ID</label>
+<input type="text" name="patient_id" required>
+
+<label>ID Type</label>
+<input type="text" name="id_type">
+
+<label>ID Number</label>
+<input type="text" name="id_number">
+
+<label>Gender</label>
+<input type="text" name="gender">
+
+<label>Disease</label>
+<input type="text" name="disease">
+
+<label>Diagnosis</label>
+<input type="text" name="diagnosis">
+
+<label>Treatment Plan</label>
+<textarea name="treatment"></textarea>
+
+<button class="btn" type="submit">Update Record</button>
+
+</form>
+
+</div>
+
+</div>
+
+<style>
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.title{
+font-size:24px;
+margin-bottom:20px;
+color:#1e88e5;
+}
+
+label{
+display:block;
+margin-top:12px;
+font-weight:bold;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+textarea{
+min-height:80px;
+}
+
+.btn{
+margin-top:20px;
+background:#1e88e5;
+color:white;
+border:none;
+padding:12px;
+border-radius:6px;
+cursor:pointer;
+width:100%;
+}
+
+.btn:hover{
+background:#1565c0;
+}
+
+</style>
+
+{% endblock %}

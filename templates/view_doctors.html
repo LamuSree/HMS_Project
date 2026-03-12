@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.container{
+max-width:900px;
+margin:40px auto;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.title{
+color:#1e88e5;
+font-size:26px;
+margin-bottom:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#1e88e5;
+color:white;
+padding:12px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+</style>
+
+<div class="container">
+
+<div class="card">
+
+<h2 class="title">👨‍⚕️ Doctors List</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Specialization</th>
+<th>Experience</th>
+</tr>
+
+<tr>
+<td>Dr. Smith</td>
+<td>Cardiologist</td>
+<td>10 Years</td>
+</tr>
+
+<tr>
+<td>Dr. John</td>
+<td>Dermatologist</td>
+<td>7 Years</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

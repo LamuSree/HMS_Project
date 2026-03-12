@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="card">
+
+<h2>🩺 My Vital Signs</h2>
+
+{% if vitals %}
+
+<table>
+
+<tr>
+<th>Temperature</th>
+<th>Blood Pressure</th>
+<th>Pulse</th>
+<th>Nurse</th>
+</tr>
+
+{% for v in vitals %}
+
+<tr>
+<td>{{ v[0] }}</td>
+<td>{{ v[1] }}</td>
+<td>{{ v[2] }}</td>
+<td>{{ v[3] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<p>No vitals recorded yet.</p>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

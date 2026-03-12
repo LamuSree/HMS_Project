@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+button{
+    padding:8px 15px;
+    border:none;
+    border-radius:6px;
+    background:#1e88e5;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1565c0;
+}
+
+input, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:10px;
+}
+
+</style>
+
+<div class="container">
+
+<h2>📂 Maintain Patient Records & Documents</h2>
+
+<div class="card">
+
+<h3>Patient Records</h3>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+<tr>
+<td>Sample Patient</td>
+<td>Stable</td>
+<td><button>Edit</button></td>
+</tr>
+
+</table>
+
+<hr>
+
+<h3>Add Nursing Notes</h3>
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>Patient:</label>
+<input type="text" name="patient" placeholder="Enter patient username" required>
+
+<label>Notes:</label>
+<textarea name="notes" placeholder="Enter nursing notes..." required></textarea>
+
+<button type="submit">Save Notes</button>
+
+</form>
+
+<hr>
+
+<h3>Upload Document</h3>
+
+<form method="POST" enctype="multipart/form-data">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>Select File</label>
+<input type="file" name="file" required>
+
+<button type="submit">Upload</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

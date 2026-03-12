@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th, td{
+    padding:12px;
+    border:1px solid #ccc;
+    text-align:left;
+}
+
+th{
+    background:#1e88e5;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+</style>
+
+<div class="container">
+
+<h2>👥 Assigned Patients</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>ID Type</th>
+<th>ID Number</th>
+<th>Name</th>
+<th>Gender</th>
+<th>Disease</th>
+</tr>
+
+{% for p in patients %}
+<tr>
+<td>{{ p[0] }}</td>
+<td>{{ p[1] }}</td>
+<td>{{ p[2] }}</td>
+<td>{{ p[3] }}</td>
+<td>{{ p[4] }}</td>
+<td>{{ p[5] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="{{ url_for('doctor_dashboard') }}">⬅ Back to Dashboard</a>
+
+</div>
+
+{% endblock %}

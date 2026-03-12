@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HMS</title>
+</head>
+
+<body>
+
+<h2>Register</h2>
+
+<input id="name" placeholder="Name">
+<input id="regUser" placeholder="Username">
+<input id="regPass" placeholder="Password">
+
+<select id="role">
+<option>User</option>
+<option>Doctor</option>
+<option>Admin</option>
+</select>
+
+<button onclick="register()">Create Account</button>
+
+<hr>
+
+<h2>Login</h2>
+
+<input id="loginUser" placeholder="Username">
+<input id="loginPass" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+<script>
+
+// ================= REGISTER =================
+
+async function register(){
+
+const name=document.getElementById("name").value;
+const username=document.getElementById("regUser").value;
+const password=document.getElementById("regPass").value;
+const role=document.getElementById("role").value;
+
+const res = await fetch("/register",{
+
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({name,username,password,role})
+
+});
+
+const data = await res.json();
+
+document.getElementById("msg").innerText=data.message;
+
+}
+
+
+// ================= LOGIN =================
+
+async function login(){
+
+const username=document.getElementById("loginUser").value;
+const password=document.getElementById("loginPass").value;
+
+const res = await fetch("/login",{
+
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({username,password})
+
+});
+
+const data = await res.json();
+
+document.getElementById("msg").innerText=data.message;
+
+}
+
+</script>
+
+</body>
+</html>

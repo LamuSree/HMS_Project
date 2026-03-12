@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>HMS 2026 - Nurses</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:linear-gradient(135deg,#1e88e5,#42a5f5);
+}
+
+.container{
+    width:700px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.2);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#1e88e5;
+    color:white;
+}
+
+th,td{
+    padding:10px;
+    border:1px solid #ccc;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f4f6f9;
+}
+
+/* Status badge */
+.status{
+    padding:5px 12px;
+    border-radius:6px;
+    color:white;
+    font-weight:bold;
+}
+
+.active{
+    background:#43a047;
+}
+
+.inactive{
+    background:#e53935;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏥 HMS 2026 - Nurses Management</h1>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Status</th>
+<th>Last Login</th>
+</tr>
+
+{% for n in nurses %}
+<tr>
+
+<td>{{ n[0] }}</td>
+
+<!-- STATUS -->
+<td>
+    {% if n[1] %}
+        <span class="status active">{{ n[1] }}</span>
+    {% else %}
+        <span class="status inactive">Not Set</span>
+    {% endif %}
+</td>
+
+<!-- LAST LOGIN -->
+<td>
+    {{ n[2] if n[2] else '--' }}
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

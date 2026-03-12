@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.box{
+    padding:20px;
+    border-radius:10px;
+    background:#f3f6f9;
+    text-decoration:none;
+    font-size:18px;
+    color:#333;
+    display:block;
+    transition:0.3s;
+}
+
+.box:hover{
+    background:#e3f2fd;
+    transform:scale(1.03);
+}
+
+.upload-section{
+    margin-top:30px;
+    padding:20px;
+    border-radius:10px;
+    background:#f9fbfd;
+    border:1px solid #ddd;
+}
+
+.upload-section h3{
+    margin-bottom:10px;
+}
+
+.upload-section input{
+    margin-top:10px;
+}
+
+</style>
+
+<div class="container">
+
+<div class="card">
+
+<h2>👩‍⚕️ Nurse Dashboard - HMS 2026</h2>
+
+<p>Welcome Nurse <b>{{ user }}</b></p>
+
+<hr>
+
+<div class="grid">
+
+<a href="{{ url_for('nurse_prescriptions') }}" class="box">
+📋 View Medical Prescriptions
+</a>
+
+<a href="{{ url_for('nurse_vitals') }}" class="box">
+🩺 Update Patient Vitals
+</a>
+
+<a href="{{ url_for('nurse_appointments') }}" class="box">
+📅 Assist Appointments
+</a>
+
+<a href="{{ url_for('nurse_monitoring') }}" class="box">
+👥 Patient Monitoring
+</a>
+
+<a href="{{ url_for('nurse_medications') }}" class="box">
+💊 Give Medications & Injections
+</a>
+
+<a href="{{ url_for('nurse_observe_patient') }}" class="box">
+👀 Observe Patient Condition
+</a>
+
+<a href="{{ url_for('nurse_discharge_assist') }}" class="box">
+📄 Assist Discharge Planning
+</a>
+
+<a href="{{ url_for('nurse_records') }}" class="box">
+📂 Maintain Patient Records & Documents
+</a>
+
+</div>
+
+<!-- ================= FILE UPLOAD SECTION ================= -->
+
+<div class="upload-section">
+
+<h3>📤 Upload Medical Report</h3>
+
+<form action="/upload_document" method="POST" enctype="multipart/form-data">
+
+<input type="file" name="file" required class="form-control">
+
+<br>
+
+<button type="submit" class="btn btn-primary">
+Upload Report
+</button>
+
+</form>
+
+</div>
+
+<br>
+
+<a href="/main_dashboard">⬅ Back</a>
+
+</div>
+
+</div>
+
+{% endblock %}

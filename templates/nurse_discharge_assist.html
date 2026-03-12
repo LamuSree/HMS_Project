@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0px 0px 15px rgba(0,0,0,0.1);
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+textarea{
+    min-height:100px;
+}
+
+button{
+    background:#1e88e5;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1565c0;
+}
+
+</style>
+
+<div class="container">
+
+<h2>📄 Assist Discharge Planning</h2>
+
+<div class="card">
+
+<form method="POST">
+
+<!-- CSRF TOKEN -->
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+<label>Patient Name:</label>
+<input type="text" name="patient" placeholder="Enter patient username" required>
+
+<label>Doctor Name:</label>
+<input type="text" name="doctor" placeholder="Enter doctor username" required>
+
+<label>Discharge Notes:</label>
+<textarea name="notes" placeholder="Enter discharge instructions or notes..." required></textarea>
+
+<button type="submit">Save Discharge Plan</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

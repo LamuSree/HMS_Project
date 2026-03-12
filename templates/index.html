@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hospital Management System</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1e88e5,#42a5f5);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:420px;
+    background:#f5f5dc;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.logo-circle{
+    width:90px;
+    height:90px;
+    background:#27ae60;
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 15px;
+}
+
+h2{
+    text-align:center;
+}
+
+label{
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:6px 0 15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.input-box{
+    position:relative;
+}
+
+.eye{
+    position:absolute;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#27ae60;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e8449;
+}
+
+.link{
+    text-align:center;
+    margin-top:12px;
+    color:#007bff;
+    cursor:pointer;
+}
+
+.hidden{
+    display:none;
+}
+
+.message{
+    margin-top:15px;
+    padding:10px;
+    background:#ecf0f1;
+    border-radius:6px;
+    text-align:center;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo-circle">HMS</div>
+
+<!-- LOGIN -->
+<div id="loginForm">
+    <h2>Login</h2>
+
+    <label>Username</label>
+    <input id="loginUser">
+
+    <label>Password</label>
+    <div class="input-box">
+        <input type="password" id="loginPass">
+        <span class="eye" onclick="toggleLoginPass()">👁️</span>
+    </div>
+
+    <button onclick="login()">Login</button>
+
+    <div class="link" onclick="showRegister()">Create Account</div>
+</div>
+
+<!-- REGISTER -->
+<div id="registerForm" class="hidden">
+    <h2>Create Account</h2>
+
+    <label>Full Name</label>
+    <input id="name">
+
+    <label>Username</label>
+    <input id="regUser">
+
+    <label>Password</label>
+    <div class="input-box">
+        <input type="password" id="regPass">
+        <span class="eye" onclick="toggleRegisterPass()">👁️</span>
+    </div>
+
+    <label>Role</label>
+    <input id="role" placeholder="Doctor / Nurse / User">
+
+    <button onclick="register()">Create Account</button>
+
+    <div class="link" onclick="showLogin()">Back to Login</div>
+</div>
+
+<div class="message" id="msg"></div>
+
+</div>
+
+<script>
+// ---------- PASSWORD TOGGLE ----------
+function toggleLoginPass(){
+    const p=document.getElementById("loginPass");
+    p.type = p.type==="password" ? "text":"password";
+}
+
+function toggleRegisterPass(){
+    const p=document.getElementById("regPass");
+    p.type = p.type==="password" ? "text":"password";
+}
+
+// ---------- LOCAL STORAGE ----------
+let users = JSON.parse(localStorage.getItem("users")) || {};
+
+// ---------- LOGIN ----------
+function login(){
+    const u=document.getElementById("loginUser").value;
+    const p=document.getElementById("loginPass").value;
+    const msg=document.getElementById("msg");
+
+    if(!u || !p){
+        msg.innerHTML="⚠️ Enter username & password";
+        return;
+    }
+
+    if(users[u] && users[u].password===p){
+        msg.innerHTML="✅ Login successful ("+users[u].role+")";
+    }else{
+        msg.innerHTML="❌ Invalid credentials";
+    }
+}
+
+// ---------- REGISTER ----------
+function registerregister(){}
+function register(){
+    const name=document.getElementById("name").value;
+    const u=document.getElementById("regUser").value;
+    const p=document.getElementById("regPass").value;
+    const role=document.getElementById("role").value;
+    const msg=document.getElementById("msg");
+
+    if(!name || !u || !p || !role){
+        msg.innerHTML="⚠️ Fill all fields";
+        return;
+    }
+
+    users[u]={name:name,password:p,role:role};
+    localStorage.setItem("users",JSON.stringify(users));
+
+    msg.innerHTML="✅ Registered Successfully";
+    showLogin();
+}
+
+// ---------- FORM SWITCH ----------
+function showRegister(){
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.remove("hidden");
+}
+
+function showLogin(){
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>

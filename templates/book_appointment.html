@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+
+.container{
+max-width:800px;
+margin:40px auto;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.title{
+color:#1e88e5;
+font-size:26px;
+margin-bottom:20px;
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.btn{
+background:#1e88e5;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+<div class="container">
+
+<div class="card">
+
+<h2 class="title">📅 Book Appointment</h2>
+
+<form method="POST">
+
+<label>Doctor</label>
+<select name="doctor">
+<option>Dr. Smith</option>
+<option>Dr. John</option>
+</select>
+
+<label>Date</label>
+<input type="date" name="date" required>
+
+<label>Reason</label>
+<input type="text" name="reason">
+
+<button class="btn" type="submit">Book Appointment</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}
