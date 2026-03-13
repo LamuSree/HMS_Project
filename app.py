@@ -17,7 +17,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from forms import RegisterForm, LoginForm
 from face_auth.recognize import recognize_user
-from voice_auth.voice_verify import verify_voice
+try:
+    from voice_auth.voice_verify import verify_voice
+except:
+    verify_voice = None
 from geopy.distance import geodesic
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
